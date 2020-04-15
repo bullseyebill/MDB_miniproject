@@ -7,9 +7,9 @@ app = Flask(__name__)
 def hello ():
     return 'Hello World...again'
 
-if__name__ == '__main__':
+if __name__ == '__main__':
    app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')),
+            port=int(os.environ.get('5000')),
             debug=True)
 
             
