@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
      <head>
           <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">           
           <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -7,8 +8,7 @@
      </head>
 
      <body>
-         {% block content %}
-         {% endblock %}
+         {% block content %} {% endblock %}
 
          <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js"></script>
          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> 
@@ -16,6 +16,15 @@
              $(document).ready(function() {
                  $('.collapsible').collapsible();
              });
+
+             $('.datepicker').pickadate({
+                 selectMonths: true, // creates a dropdown to control month
+                 selectYears: 15, //creates a dropdown of 15 years to control years
+                 today: 'Today',
+                 clear: 'Clear',
+                 close: 'Ok',
+                 closeOnSelect: false // close upon selecting date
+             })
          </script>
      </body>
 </html>         
