@@ -17,13 +17,15 @@
                  $('select').formSelect();
              });
 
-             $('.datepicker').pickadate({
-                 selectMonths: true, // creates a dropdown to control month
-                 selectYears: 15, //creates a dropdown of 15 years to control years
-                 today: 'Today',
-                 clear: 'Clear',
-                 close: 'Ok',
-                 closeOnSelect: false // close upon selecting date
+             $(".datepicker").datepicker({
+                format: "dd mmm yyyy",
+                yearRange: 3,
+                showClearBtn: true,
+                i18n: {
+                   clear: "Clear",
+                   done: "Select",
+                   cancel: "Cancel"
+               }
              });
               document.getElementById("matfix").addEventListener("click", function(e) {
                   e.stopPropagation();
