@@ -28,7 +28,7 @@ def insert_task():
     tasks = mongo.db.tasks
     tasks.insert_one(request.form.to_dict())
     return redirect(url_for('get_tasks'))
-    
+
 
 @app.route('/edit_task/<task_id>')
 def edit_task(task_id):
@@ -48,6 +48,16 @@ def update_task(task_id):
         'is_urgent':request.form.get('is_urgent')
     })
     return redirect(url_for('get_tasks'))
+
+@app.route('/delete_task/<task_id>')
+def delete_task(task_id):
+    mongo.db.tasks.remove({'_id': ObjectId(task_id)})
+    return redirect(url_for('get_tasks'))
+
+    @app.route('/get_categories')
+    def get_categories():
+        return render_template('categories.html', categories=mongo.db.categories.find())
+        
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
