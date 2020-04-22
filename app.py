@@ -63,6 +63,7 @@ def get_categories():
         return render_template('categories.html', 
                                categories=mongo.db.categories.find())
         
+        
 @app.route('/delete_category/<category_id>')
 def delete_category(category_id):
     mongo.db.categories.remove({'_id': ObjectId(category_id)})
